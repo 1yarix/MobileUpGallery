@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoViewController" customModule="VkApp" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="gyn-gu-0Un" id="Vlw-A3-uum"/>
+                <outlet property="scrollView" destination="zKj-jd-vMy" id="gHK-fP-Gay"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zKj-jd-vMy">
+                    <rect key="frame" x="0.0" y="246" width="414" height="414"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7te-xn-cvv">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gyn-gu-0Un">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="gyn-gu-0Un" secondAttribute="trailing" id="Cn6-OE-pIe"/>
+                                <constraint firstItem="gyn-gu-0Un" firstAttribute="leading" secondItem="7te-xn-cvv" secondAttribute="leading" id="JwS-N6-7sc"/>
+                                <constraint firstAttribute="bottom" secondItem="gyn-gu-0Un" secondAttribute="bottom" id="guC-fs-ypy"/>
+                                <constraint firstItem="gyn-gu-0Un" firstAttribute="top" secondItem="7te-xn-cvv" secondAttribute="top" id="z31-Z5-3y3"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.33203642960000002" blue="0.73294351140000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstItem="7te-xn-cvv" firstAttribute="top" secondItem="CCd-Dv-pPY" secondAttribute="top" id="2Ju-kX-Ye8"/>
+                        <constraint firstItem="7te-xn-cvv" firstAttribute="trailing" secondItem="CCd-Dv-pPY" secondAttribute="trailing" id="6xw-nK-rJ4"/>
+                        <constraint firstItem="7te-xn-cvv" firstAttribute="bottom" secondItem="CCd-Dv-pPY" secondAttribute="bottom" id="BOI-jh-nxN"/>
+                        <constraint firstItem="7te-xn-cvv" firstAttribute="leading" secondItem="CCd-Dv-pPY" secondAttribute="leading" id="bDb-oG-1u4"/>
+                        <constraint firstItem="7te-xn-cvv" firstAttribute="height" secondItem="wgt-X5-q74" secondAttribute="height" id="fCB-o4-JEN"/>
+                        <constraint firstItem="7te-xn-cvv" firstAttribute="width" secondItem="wgt-X5-q74" secondAttribute="width" id="huy-GE-0O2"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="CCd-Dv-pPY"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="wgt-X5-q74"/>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="zKj-jd-vMy" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="eIN-w8-nct"/>
+                <constraint firstItem="gyn-gu-0Un" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.462054" id="edS-WQ-rIq"/>
+                <constraint firstItem="gyn-gu-0Un" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="iD4-qJ-Rrb"/>
+                <constraint firstItem="zKj-jd-vMy" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="p4a-ie-0oI"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="93.75"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
