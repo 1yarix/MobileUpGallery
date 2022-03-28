@@ -209,7 +209,7 @@
 		5B8184B93D961D8BA9D1E5C8AB9FD925 /* WebPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebPresenter.swift; path = Library/Sources/Presentation/Web/WebPresenter.swift; sourceTree = "<group>"; };
 		5D7C796DE454B4C68E2A29CDC4FAC704 /* FullVariationsMethod.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FullVariationsMethod.swift; path = "Library/Sources/API Supporting/Methods/FullVariationsMethod.swift"; sourceTree = "<group>"; };
 		5EB30B2DE81439E8244E5E7D5C5BD574 /* Method.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Method.swift; path = "Library/Sources/API Supporting/Methods/Method.swift"; sourceTree = "<group>"; };
-		5F4E0D32C073E5C6470EBB9D84F2C4D1 /* SwiftyVK */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyVK; path = SwiftyVK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F4E0D32C073E5C6470EBB9D84F2C4D1 /* SwiftyVK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyVK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60FB56846AACCA211E9BD3EE911F10F6 /* Notifacations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifacations.swift; path = Library/Sources/API/Notifacations.swift; sourceTree = "<group>"; };
 		61A8F5CB713880BB4AFD66D4F003A65D /* Media.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Media.swift; path = "Library/Sources/API Supporting/Parameters/Media.swift"; sourceTree = "<group>"; };
 		6281C36A37BBDF4141D87281AA1FFBBB /* ShareContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ShareContext.swift; path = Library/Sources/Sharing/ShareContext.swift; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 		9B5E6E7CBEABF1036452E48914FCB56E /* KeychainProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KeychainProvider.swift; path = Library/Sources/Utils/KeychainProvider.swift; sourceTree = "<group>"; };
 		9CC03293BF6112EE37CC5D19AD9E814D /* Pods-MobileUpGallery-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MobileUpGallery-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9CC8F143BC02FED600419740F78F4784 /* VKURLSessionTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VKURLSessionTask.swift; path = Library/Sources/Extensions/VKURLSessionTask.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A4E0EA014BFC741AA9460F188534FC0D /* Custom.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Custom.swift; path = Library/Sources/API/Custom.swift; sourceTree = "<group>"; };
 		A5F0B66575C9DF4A343129DC9C8B9C65 /* Board.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Board.swift; path = Library/Sources/API/Board.swift; sourceTree = "<group>"; };
 		A9276D8AA0DA46E0879C5B25415256F5 /* APIMethod.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIMethod.swift; path = "Library/Sources/API Supporting/Methods/APIMethod.swift"; sourceTree = "<group>"; };
@@ -334,7 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				D618AFEC21CE18A62401862DE0D028DA /* Pods-MobileUpGallery */,
-				5F4E0D32C073E5C6470EBB9D84F2C4D1 /* SwiftyVK */,
+				5F4E0D32C073E5C6470EBB9D84F2C4D1 /* SwiftyVK.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -475,7 +475,6 @@
 				FEBCE72230B080590AA5E4CBC6A46C95 /* Resources */,
 				F05D318356816D190AE7BBB58961F3DA /* Support Files */,
 			);
-			name = SwiftyVK;
 			path = SwiftyVK;
 			sourceTree = "<group>";
 		};
@@ -600,7 +599,7 @@
 			);
 			name = SwiftyVK;
 			productName = SwiftyVK;
-			productReference = 5F4E0D32C073E5C6470EBB9D84F2C4D1 /* SwiftyVK */;
+			productReference = 5F4E0D32C073E5C6470EBB9D84F2C4D1 /* SwiftyVK.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		BF635DCE34E3F2469F1BC488614AFF86 /* Pods-MobileUpGallery */ = {
@@ -629,7 +628,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1320;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 13.0";
@@ -841,7 +840,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftyVK/SwiftyVK-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftyVK/SwiftyVK-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1079,7 +1078,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftyVK/SwiftyVK-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftyVK/SwiftyVK-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,6 +1,6 @@
 import Foundation
 
-protocol Authorizator: class {
+protocol Authorizator: AnyObject {
     func getSavedToken(sessionId: String) -> InvalidatableToken?
     func authorize(sessionId: String, config: SessionConfig, revoke: Bool) throws -> InvalidatableToken
     func authorize(sessionId: String, rawToken: String, expires: TimeInterval) throws -> InvalidatableToken
@@ -55,6 +55,7 @@ final class AuthorizatorImpl: Authorizator {
             guard let scopes = delegate?.vkNeedsScopes(for: sessionId).rawValue else {
                 throw VKError.vkDelegateNotFound
             }
+            
             
             let vkAppAuthQuery = try makeAuthQuery(
                 sessionId: sessionId,

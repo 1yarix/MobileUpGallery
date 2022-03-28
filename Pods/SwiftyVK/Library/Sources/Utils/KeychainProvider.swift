@@ -22,7 +22,7 @@ class KeychainProvider<EntityType> {
         else {
             // Because Xcode 10 has a bug - http://openradar.appspot.com/49262697
             // swiftlint:disable next compiler_protocol_init
-            let selector = Selector(stringLiteral: "archivedDataWithRootObject:")
+            let selector = #selector(NSKeyedArchiver.archivedData(withRootObject:))
             // swiftlint:disable next force_cast force_unwrapping
             data = NSKeyedArchiver.perform(selector, with: entity)!.takeRetainedValue() as! Data
         }
@@ -55,7 +55,11 @@ class KeychainProvider<EntityType> {
             return nil
         }
         
-        guard let entity = NSKeyedUnarchiver.unarchiveObject(with: data) as? EntityType else {
+//        guard let entity = NSKeyedUnarchiver.unarchiveObject(with: data) as? EntityType else {
+//            return nil
+//        }
+        
+        guard let entity = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? EntityType else {
             return nil
         }
         
@@ -68,7 +72,7 @@ class KeychainProvider<EntityType> {
     
     private func keychainParamsFor(sessionId: String) -> NSMutableDictionary {
         return [
-            kSecAttrAccessible: kSecAttrAccessibleAlways,
+            kSecAttrAccessible: kSecAttrAccessibleAfterFirstUnlock,
             kSecClass: kSecClassGenericPassword,
             kSecAttrService: serviceKey,
             kSecAttrAccount: "SVK" + sessionId

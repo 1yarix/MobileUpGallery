@@ -1,6 +1,6 @@
 import Foundation
 
-protocol VKAppProxy: class {
+protocol VKAppProxy: AnyObject {
     @discardableResult
     func send(query: String) throws -> Bool
     func handle(url: URL, app: String?) -> String?

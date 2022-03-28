@@ -1,4 +1,5 @@
 import UIKit
+import SwiftyVK
 
 class GalleryViewController: UIViewController {
 
@@ -17,6 +18,7 @@ class GalleryViewController: UIViewController {
         setupNavigationBar()
     }
     
+    // MARK: NavigationBar config
     private func setupNavigationBar() {
         
         self.navigationItem.title = "Mobile Up Gallery"
@@ -29,10 +31,15 @@ class GalleryViewController: UIViewController {
         backButton.tintColor = .label
         self.navigationItem.backBarButtonItem = backButton
         
-        let button = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: nil)
+        let button = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(logout))
         button.tintColor = .label
         button.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)], for: .normal)
         self.navigationItem.rightBarButtonItem = button
+    }
+    
+    @objc private func logout() {
+        VK.sessions.default.logOut()        
+        self.dismiss(animated: true, completion: nil)
     }
 }
         

@@ -10,10 +10,10 @@ class PhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupShareButton()
-        setupScrollView()
         imageView.image = imageToShow
         scrollView.delegate = self
+        setupShareButton()
+        setupScrollView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,7 +32,7 @@ class PhotoViewController: UIViewController {
     }
     
     private func setupScrollView() {
-        //scrollView.isScrollEnabled = false
+        scrollView.isScrollEnabled = false
         scrollView.bounces = false
         scrollView.bouncesZoom = false
         scrollView.minimumZoomScale = 1.0
@@ -46,7 +46,7 @@ class PhotoViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = button
     }
     
-   @objc func shareImage() {
+   @objc private func shareImage() {
        
        let items: [Any] = [imageToShow!]
        let avc = UIActivityViewController(activityItems: items, applicationActivities: nil)

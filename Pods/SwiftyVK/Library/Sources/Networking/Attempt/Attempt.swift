@@ -1,6 +1,6 @@
 import Foundation
 
-protocol Attempt: class, OperationConvertible {
+protocol Attempt: AnyObject, OperationConvertible {
     init(
         request: URLRequest,
         session: VKURLSession,
