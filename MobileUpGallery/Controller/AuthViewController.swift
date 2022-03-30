@@ -14,13 +14,14 @@ class AuthViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if let _ = VK.sessions.default.accessToken {
+                
+        if (VK.sessions.default.state == .authorized) {
             showGallery()
         }
     }
     
     private func login() {
+        
         VK.sessions.default.logIn(
             onSuccess: { _ in
                 DispatchQueue.main.async { [weak self] in

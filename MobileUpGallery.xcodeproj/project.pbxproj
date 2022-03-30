@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2916EF5127F48BC4002CE003 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2916EF5027F48BC4002CE003 /* ImageDownloader.swift */; };
 		291AFDE027EF2C6A0023E395 /* AuthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 291AFDDF27EF2C6A0023E395 /* AuthView.xib */; };
 		291AFDE727EF2F380023E395 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291AFDE527EF2F380023E395 /* GalleryViewController.swift */; };
 		291AFDED27EF5BCB0023E395 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291AFDEB27EF5BCB0023E395 /* GalleryCollectionViewCell.swift */; };
@@ -20,6 +21,9 @@
 		29CDCF9427F1D4C100CE8FE0 /* GalleryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29CDCF9327F1D4C100CE8FE0 /* GalleryView.xib */; };
 		29CDCF9627F1D50B00CE8FE0 /* PhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29CDCF9527F1D50B00CE8FE0 /* PhotoView.xib */; };
 		29F5B2B627F1ED5E00D75C97 /* VKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F5B2B527F1ED5E00D75C97 /* VKDelegate.swift */; };
+		29F8529627F3A15F00B43C5A /* VKRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F8529527F3A15F00B43C5A /* VKRequestHandler.swift */; };
+		29F8529827F3A5CE00B43C5A /* ParsedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F8529727F3A5CE00B43C5A /* ParsedResponse.swift */; };
+		29F8529A27F3A69200B43C5A /* PhotoDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F8529927F3A69200B43C5A /* PhotoDataStorage.swift */; };
 		29F94A0F27F0AD1700F829FD /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F94A0E27F0AD1700F829FD /* extensions.swift */; };
 		3DDBCA4AEE2CAFFDB61E33FF /* Pods_MobileUpGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 057044163F3204F5808BE4B3 /* Pods_MobileUpGallery.framework */; };
 /* End PBXBuildFile section */
@@ -27,6 +31,7 @@
 /* Begin PBXFileReference section */
 		057044163F3204F5808BE4B3 /* Pods_MobileUpGallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileUpGallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A0702E5C8B13A444E66BE0B /* Pods-MobileUpGallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileUpGallery.release.xcconfig"; path = "Target Support Files/Pods-MobileUpGallery/Pods-MobileUpGallery.release.xcconfig"; sourceTree = "<group>"; };
+		2916EF5027F48BC4002CE003 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		291AFDDF27EF2C6A0023E395 /* AuthView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthView.xib; sourceTree = "<group>"; };
 		291AFDE527EF2F380023E395 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		291AFDEB27EF5BCB0023E395 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -42,6 +47,9 @@
 		29CDCF9327F1D4C100CE8FE0 /* GalleryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryView.xib; sourceTree = "<group>"; };
 		29CDCF9527F1D50B00CE8FE0 /* PhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoView.xib; sourceTree = "<group>"; };
 		29F5B2B527F1ED5E00D75C97 /* VKDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKDelegate.swift; sourceTree = "<group>"; };
+		29F8529527F3A15F00B43C5A /* VKRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKRequestHandler.swift; sourceTree = "<group>"; };
+		29F8529727F3A5CE00B43C5A /* ParsedResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedResponse.swift; sourceTree = "<group>"; };
+		29F8529927F3A69200B43C5A /* PhotoDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDataStorage.swift; sourceTree = "<group>"; };
 		29F94A0E27F0AD1700F829FD /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		EC66BCA0AB6AEC5A4D048688 /* Pods-MobileUpGallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileUpGallery.debug.xcconfig"; path = "Target Support Files/Pods-MobileUpGallery/Pods-MobileUpGallery.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +109,7 @@
 		29CDCF8F27F1D39D00CE8FE0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				29F8529927F3A69200B43C5A /* PhotoDataStorage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -131,9 +140,12 @@
 		29CDCF9227F1D3C500CE8FE0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				29F8529727F3A5CE00B43C5A /* ParsedResponse.swift */,
+				29F8529527F3A15F00B43C5A /* VKRequestHandler.swift */,
 				294391FA27EF1B500060CD01 /* Assets.xcassets */,
 				29F94A0E27F0AD1700F829FD /* extensions.swift */,
 				29F5B2B527F1ED5E00D75C97 /* VKDelegate.swift */,
+				2916EF5027F48BC4002CE003 /* ImageDownloader.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -274,12 +286,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2943920727EF1C040060CD01 /* AuthViewController.swift in Sources */,
+				29F8529627F3A15F00B43C5A /* VKRequestHandler.swift in Sources */,
 				291AFDED27EF5BCB0023E395 /* GalleryCollectionViewCell.swift in Sources */,
 				29F94A0F27F0AD1700F829FD /* extensions.swift in Sources */,
 				291AFDE727EF2F380023E395 /* GalleryViewController.swift in Sources */,
+				29F8529827F3A5CE00B43C5A /* ParsedResponse.swift in Sources */,
+				29F8529A27F3A69200B43C5A /* PhotoDataStorage.swift in Sources */,
 				291AFDF527EFAFB20023E395 /* PhotoViewController.swift in Sources */,
 				294391F227EF1B4F0060CD01 /* AppDelegate.swift in Sources */,
 				294391F427EF1B4F0060CD01 /* SceneDelegate.swift in Sources */,
+				2916EF5127F48BC4002CE003 /* ImageDownloader.swift in Sources */,
 				29F5B2B627F1ED5E00D75C97 /* VKDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

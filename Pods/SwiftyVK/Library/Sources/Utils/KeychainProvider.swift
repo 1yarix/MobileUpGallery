@@ -55,11 +55,7 @@ class KeychainProvider<EntityType> {
             return nil
         }
         
-//        guard let entity = NSKeyedUnarchiver.unarchiveObject(with: data) as? EntityType else {
-//            return nil
-//        }
-        
-        guard let entity = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? EntityType else {
+        guard let entity = NSKeyedUnarchiver.unarchiveObject(with: data) as? EntityType else {
             return nil
         }
         

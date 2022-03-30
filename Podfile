@@ -6,6 +6,7 @@ target 'MobileUpGallery' do
   use_frameworks!
 
   pod 'SwiftyVK'
+  pod 'Nuke', :git => 'https://github.com/kean/Nuke', :branch => 'master'
 
   # Pods for MobileUpGallery
 

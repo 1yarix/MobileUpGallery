@@ -1,16 +1,29 @@
 PODS:
+  - Nuke (10.7.1)
   - SwiftyVK (3.4.2)
 
 DEPENDENCIES:
+  - Nuke (from `https://github.com/kean/Nuke`, branch `master`)
   - SwiftyVK
 
 SPEC REPOS:
   trunk:
     - SwiftyVK
 
+EXTERNAL SOURCES:
+  Nuke:
+    :branch: master
+    :git: https://github.com/kean/Nuke
+
+CHECKOUT OPTIONS:
+  Nuke:
+    :commit: 04953e2cde7022574fda9e91d7cbe9232259bc15
+    :git: https://github.com/kean/Nuke
+
 SPEC CHECKSUMS:
+  Nuke: 279f17a599fd1c83cf51de5e0e1f2db143a287b0
   SwiftyVK: 5005dac6e85f7b0fd44e21ed2f021a397dff4cab
 
-PODFILE CHECKSUM: d9de16674d96ebf7ef8823ff31cb0867e8403338
+PODFILE CHECKSUM: 6abdcd7f1adcf7126cde56f0a2fc9590c5369bdb
 
 COCOAPODS: 1.11.2

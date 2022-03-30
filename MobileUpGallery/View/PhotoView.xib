@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoViewController" customModule="VkApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoViewController" customModule="MobileUpGallery" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="gyn-gu-0Un" id="Vlw-A3-uum"/>
                 <outlet property="scrollView" destination="zKj-jd-vMy" id="gHK-fP-Gay"/>
@@ -27,7 +27,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7te-xn-cvv">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gyn-gu-0Un">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gyn-gu-0Un">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                 </imageView>
                             </subviews>

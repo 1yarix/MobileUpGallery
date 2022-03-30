@@ -6,7 +6,6 @@ var vkDelegate: VKDelegate!
 final class VKDelegate: SwiftyVKDelegate {
     
     let appId = "8118704"
-    
     let scopes: Scopes = []
     
     init() {

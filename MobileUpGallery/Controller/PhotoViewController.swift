@@ -6,6 +6,7 @@ class PhotoViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     var imageToShow: UIImage!
+    var photoDate: TimeInterval!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,6 +15,7 @@ class PhotoViewController: UIViewController {
         scrollView.delegate = self
         setupShareButton()
         setupScrollView()
+        setupDate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,6 +46,16 @@ class PhotoViewController: UIViewController {
         button.tintColor = .label
         button.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)], for: .normal)
         self.navigationItem.rightBarButtonItem = button
+    }
+    
+    private func setupDate() {
+        let date = Date(timeIntervalSince1970: photoDate)
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ru_RU")
+        dateFormatter.dateFormat = "d MMMM y"
+        let dateStr = dateFormatter.string(from: date)
+
+        title = dateStr
     }
     
    @objc private func shareImage() {
