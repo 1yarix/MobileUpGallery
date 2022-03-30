@@ -1,23 +1,11 @@
-struct ParsedResponse: Decodable {
-
-    enum CodingKeys: String, CodingKey {
-        case count
-        case photos = "items"
-    }
-    
-    let count: Int
-    let photos: [Photo]
-}
-
 struct Photo: Decodable {
     
     enum CodingKeys: String, CodingKey {
-        case date
-        case photoSizes = "sizes"
+        case date, sizes
     }
     
     var date: Int
-    var photoSizes: [Size]
+    var sizes: [Size]
 }
 
 struct Size: Decodable {

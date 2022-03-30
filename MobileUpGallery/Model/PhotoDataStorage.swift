@@ -1,9 +1,10 @@
 class PhotoDataStorage {
     
     static let shared = PhotoDataStorage()
+    
     private(set) var photos: [Photo]
     
-    init() {
+    private init() {
         self.photos = VKRequestHandler.getAlbumPhotos()
         filterUrls()
     }
@@ -11,7 +12,7 @@ class PhotoDataStorage {
     private func filterUrls() {
        photos = photos.map({
            var photo = $0
-           photo.photoSizes = photo.photoSizes.filter({$0.type == "w"})
+           photo.sizes = photo.sizes.filter({$0.type == "w"})
            return photo
         })
     }

@@ -5,8 +5,8 @@ class GalleryViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var photosData: [Photo]!
-    var downloadedImages: [Int: (date: Int, image: UIImage)] = [:]
+    var photos: [Photo] = []
+    var loadedPhotos: [Int: (date: Int, image: UIImage)] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,7 +14,7 @@ class GalleryViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        self.photosData = PhotoDataStorage.shared.photos
+        self.photos = PhotoDataStorage.shared.photos
         
         collectionView.register(UINib(nibName: "GalleryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         
@@ -51,18 +51,18 @@ class GalleryViewController: UIViewController {
 extension GalleryViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photosData.count
+        return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! GalleryCollectionViewCell
         
-        let photoUrl = photosData[indexPath.row].photoSizes[0].url
-        let photoDate = photosData[indexPath.row].date
+        let photoUrl = photos[indexPath.row].sizes[0].url
+        let photoDate = photos[indexPath.row].date
     
         ImageDownloader.loadImage(with: photoUrl, into: cell.imageView, completion: { [weak self] _ in
-            self!.downloadedImages[indexPath.row] = (photoDate, cell.imageView.image!)
+            self!.loadedPhotos[indexPath.row] = (photoDate, cell.imageView.image!)
         })
 
         return cell
@@ -86,8 +86,10 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = PhotoViewController(nibName: "PhotoView", bundle: nil)
-        vc.imageToShow = downloadedImages[indexPath.row]?.image
-        vc.photoDate = TimeInterval(downloadedImages[indexPath.row]!.date)
+        let photo = loadedPhotos[indexPath.row]!
+        
+        vc.photo = photo.image
+        vc.photoDate = TimeInterval(photo.date)
         
         navigationController?.pushViewController(vc, animated: true)
     }

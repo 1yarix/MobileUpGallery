@@ -5,13 +5,13 @@ class PhotoViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var imageToShow: UIImage!
+    var photo: UIImage!
     var photoDate: TimeInterval!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageView.image = imageToShow
+        imageView.image = photo
         scrollView.delegate = self
         setupShareButton()
         setupScrollView()
@@ -60,7 +60,7 @@ class PhotoViewController: UIViewController {
     
    @objc private func shareImage() {
        
-       let items: [Any] = [imageToShow!]
+       let items: [Any] = [photo!]
        let avc = UIActivityViewController(activityItems: items, applicationActivities: nil)
        
        /* Костыли для обхода бага(?) на ios 13-14.4
