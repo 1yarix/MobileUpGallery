@@ -15,18 +15,13 @@ class AuthViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-                
-        if (VK.sessions.default.state == .authorized) {
-            showGallery()
-        }
+        
+        if isAuthorized() {showGallery()}
     }
     
     private func login() {
         
-        guard NetworkMonitor.shared.isConnected == true else {
-            Alert.showAlert(title: "Ошибка", message: "Отсутствует подключение к сети", actionToRetry: login, on: self)
-            return
-        }
+        if isAuthorized() {showGallery()}
         
         VK.sessions.default.logIn(
             onSuccess: { _ in
@@ -39,6 +34,19 @@ class AuthViewController: UIViewController {
                 Alert.showAlert(title: "Ошибка", message: "Авторизация не выполнена: \(error)", actionToRetry: nil, on: self)
             }
         )
+    }
+    
+    private func isAuthorized() -> Bool {
+        guard NetworkMonitor.shared.isConnected == true else {
+            Alert.showAlert(title: "Ошибка", message: "Отсутствует подключение к сети", actionToRetry: nil, on: self)
+            return false
+        }
+                
+        if (VK.sessions.default.state == .authorized) {
+            return true
+        }
+        
+        return false
     }
     
     private func showGallery() {

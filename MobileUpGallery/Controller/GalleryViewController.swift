@@ -46,12 +46,7 @@ class GalleryViewController: UIViewController {
     }
     
     private func getPhotosFromStorage() {
-        
-        guard NetworkMonitor.shared.isConnected == true else {
-            Alert.showAlert(title: "Ошибка", message: "Отсутствует подключение к сети", actionToRetry: getPhotosFromStorage, on: self)
-            return
-        }
-        
+                
         let storage: PhotoDataStorage
         
         do {
