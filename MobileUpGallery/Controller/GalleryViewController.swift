@@ -99,8 +99,13 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let photo = loadedPhotos[indexPath.row] else {
+            return
+        }
+        
         let vc = PhotoViewController(nibName: "PhotoView", bundle: nil)
-        let photo = loadedPhotos[indexPath.row]!
+    
         
         vc.photo = photo.image
         vc.photoDate = TimeInterval(photo.date)
