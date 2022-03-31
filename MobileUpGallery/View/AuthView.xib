@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -9,28 +9,28 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthViewController" customModule="VkApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthViewController" customModule="MobileUpGallery" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AdM-A5-2hu" userLabel="Mobile Up Gallery">
-                    <rect key="frame" x="24" y="189" width="195.5" height="100.5"/>
+                    <rect key="frame" x="24" y="158" width="327" height="100.33333333333331"/>
                     <string key="text">Mobile Up
 Gallery</string>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="42"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xm5-1D-nDK">
-                    <rect key="frame" x="34" y="782" width="346" height="56"/>
+                    <rect key="frame" x="24" y="706" width="327" height="56"/>
                     <color key="backgroundColor" systemColor="labelColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="56" id="eMI-Hr-W0K"/>
+                        <constraint firstAttribute="height" constant="56" id="xVd-z0-V20"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -48,13 +48,13 @@ Gallery</string>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="AdM-A5-2hu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="145" id="0gQ-ev-V9D"/>
-                <constraint firstItem="AdM-A5-2hu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="7X0-Bn-uw8"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xm5-1D-nDK" secondAttribute="trailing" constant="34" id="9ju-co-NHL"/>
-                <constraint firstItem="xm5-1D-nDK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="34" id="AIT-3s-f1I"/>
-                <constraint firstItem="xm5-1D-nDK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="34" id="SHx-tv-G8u"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xm5-1D-nDK" secondAttribute="bottom" constant="24" id="XVl-9c-6mN"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xm5-1D-nDK" secondAttribute="trailing" constant="34" id="vZF-xs-gvB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AdM-A5-2hu" secondAttribute="trailing" constant="24" id="MZ7-Bf-3EL"/>
+                <constraint firstItem="AdM-A5-2hu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="Mzb-Dm-xrF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xm5-1D-nDK" secondAttribute="bottom" constant="16" id="NMh-Zx-Khv"/>
+                <constraint firstItem="xm5-1D-nDK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="aqR-hz-TOn"/>
+                <constraint firstItem="AdM-A5-2hu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="114" id="gDV-kF-Id3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xm5-1D-nDK" secondAttribute="trailing" constant="24" id="ks3-dR-AZQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xm5-1D-nDK" secondAttribute="trailing" constant="24" id="wsW-Zy-BnI"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="95.758928571428569"/>
         </view>

@@ -2,9 +2,10 @@ import SwiftyVK
 
 class VKRequestHandler {
     
-    static func getAlbumPhotos() -> [Photo] {
+    static func getAlbumPhotos() throws -> [Photo] {
         
         var photos: [Photo] = []
+        var error: VKError?
         
         let group = DispatchGroup()
         group.enter()
@@ -16,12 +17,16 @@ class VKRequestHandler {
                 group.leave()
             }
             .onError {
-                print("Request failed with: \($0)")
+                error = $0
                 group.leave()
+                
             }
             .send()
         
         group.wait()
+        if let error = error {
+            throw error
+        }
         return photos
     }
 }

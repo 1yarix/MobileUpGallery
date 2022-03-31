@@ -1,5 +1,6 @@
 import UIKit
 import SwiftyVK
+import SwiftUI
 
 class AuthViewController: UIViewController {
 
@@ -22,20 +23,22 @@ class AuthViewController: UIViewController {
     
     private func login() {
         
+        guard NetworkMonitor.shared.isConnected == true else {
+            Alert.showAlert(title: "Ошибка", message: "Отсутствует подключение к сети", actionToRetry: login, on: self)
+            return
+        }
+        
         VK.sessions.default.logIn(
             onSuccess: { _ in
+                
                 DispatchQueue.main.async { [weak self] in
                     self!.showGallery()
                 }
             },
             onError: { error in
-                print(error)
+                Alert.showAlert(title: "Ошибка", message: "Авторизация не выполнена: \(error)", actionToRetry: nil, on: self)
             }
         )
-        
-        if (VK.sessions.default.accessToken == nil) {
-            // Alert
-        }
     }
     
     private func showGallery() {

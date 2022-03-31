@@ -34,7 +34,7 @@ class PhotoViewController: UIViewController {
     }
     
     private func setupScrollView() {
-        scrollView.isScrollEnabled = false
+        scrollView.isScrollEnabled = true
         scrollView.bounces = false
         scrollView.bouncesZoom = false
         scrollView.minimumZoomScale = 1.0
@@ -59,26 +59,41 @@ class PhotoViewController: UIViewController {
     }
     
    @objc private func shareImage() {
+        
+       let items: [Any] = [imageView.image!]
        
-       let items: [Any] = [photo!]
-       let avc = UIActivityViewController(activityItems: items, applicationActivities: nil)
+       let customSavePhotoActivity = CustomSavePhotoActivity()
+       let avc = UIActivityViewController(activityItems: items, applicationActivities: [customSavePhotoActivity])
+       avc.excludedActivityTypes = [.saveToCameraRoll]
        
        /* Костыли для обхода бага(?) на ios 13-14.4
          https://stackoverflow.com/questions/56903030/
          https://developer.apple.com/forums/thread/119482 */
        
        let fakeViewController = UIViewController()
+       
        fakeViewController.modalPresentationStyle = .overFullScreen
 
-       avc.completionWithItemsHandler = { [weak fakeViewController] _, _, _, _ in
-         if let presentingViewController = fakeViewController?.presentingViewController {
-         presentingViewController.dismiss(animated: false, completion: nil)
-         } else {
-         fakeViewController?.dismiss(animated: false, completion: nil)
-         }
+       avc.completionWithItemsHandler = { [weak fakeViewController, weak self] activityType, _, _, _ in
+           
+           if activityType == UIActivity.ActivityType("CustomSavePhotoActivity") {
+               
+               if customSavePhotoActivity.isComplete {
+                   Alert.showAlert(title: "Сохранено", message: "", actionToRetry: nil, on: self!)
+               }
+               else {
+                   Alert.showAlert(title: "Ошибка", message: customSavePhotoActivity.error!.localizedDescription, actionToRetry: nil, on: self!)
+               }
+           }
+           
+           if let presentingViewController = fakeViewController?.presentingViewController {
+               presentingViewController.dismiss(animated: false, completion: nil)
+           } else {
+               fakeViewController?.dismiss(animated: false, completion: nil)
+           }
        }
        present(fakeViewController, animated: true) { [weak fakeViewController] in
-         fakeViewController?.present(avc, animated: true, completion: nil)
+           fakeViewController?.present(avc, animated: true, completion: nil)
        }
    }
 }

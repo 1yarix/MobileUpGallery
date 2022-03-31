@@ -1,11 +1,9 @@
 class PhotoDataStorage {
-    
-    static let shared = PhotoDataStorage()
-    
+        
     private(set) var photos: [Photo]
     
-    private init() {
-        self.photos = VKRequestHandler.getAlbumPhotos()
+    init() throws {
+        self.photos = try VKRequestHandler.getAlbumPhotos()
         filterUrls()
     }
     

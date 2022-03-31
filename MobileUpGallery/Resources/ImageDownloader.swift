@@ -4,7 +4,6 @@ class ImageDownloader {
     
     static func loadImage(with url: ImageRequestConvertible?, into view: ImageDisplayingView,
                           completion: ((_ result: Result<ImageResponse, ImagePipeline.Error>) -> Void)? = nil) {
-        
         Nuke.loadImage(with: url, options: getOptions(), into: view, completion: completion)
     }
     

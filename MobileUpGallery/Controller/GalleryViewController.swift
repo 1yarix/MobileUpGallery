@@ -14,7 +14,7 @@ class GalleryViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        self.photos = PhotoDataStorage.shared.photos
+        getPhotosFromStorage()
         
         collectionView.register(UINib(nibName: "GalleryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         
@@ -43,6 +43,25 @@ class GalleryViewController: UIViewController {
     @objc private func logout() {
         VK.sessions.default.logOut()        
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func getPhotosFromStorage() {
+        
+        guard NetworkMonitor.shared.isConnected == true else {
+            Alert.showAlert(title: "Ошибка", message: "Отсутствует подключение к сети", actionToRetry: getPhotosFromStorage, on: self)
+            return
+        }
+        
+        let storage: PhotoDataStorage
+        
+        do {
+            storage = try PhotoDataStorage()
+            self.photos = storage.photos
+            
+        } catch VKError.api(let error){
+            let message = "Код ошибки: \(error.code) \n" + error.message
+            Alert.showAlert(title: "Ошибка сервера", message: message, actionToRetry: getPhotosFromStorage, on: self)
+        } catch {}
     }
 }
         
@@ -74,7 +93,7 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let countCells = 2
-        let offset: CGFloat = 2.0
+        let offset: CGFloat = 1.0
 
         let frameCV = collectionView.frame
         let widhtCell = frameCV.width / CGFloat(countCells)
