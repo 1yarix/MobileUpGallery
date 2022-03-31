@@ -28,7 +28,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="375.33333333333331"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gyn-gu-0Un">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="375.33333333333331"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemIndigoColor"/>
@@ -61,7 +61,7 @@
                 <constraint firstItem="gyn-gu-0Un" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="iD4-qJ-Rrb"/>
                 <constraint firstItem="zKj-jd-vMy" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="p4a-ie-0oI"/>
             </constraints>
-            <point key="canvasLocation" x="137.68115942028987" y="93.75"/>
+            <point key="canvasLocation" x="136.80000000000001" y="93.103448275862078"/>
         </view>
     </objects>
     <resources>

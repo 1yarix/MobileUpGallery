@@ -6,7 +6,6 @@ class GalleryViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var photos: [Photo] = []
-    var loadedPhotos: [Int: (date: Int, image: UIImage)] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,12 +45,9 @@ class GalleryViewController: UIViewController {
     }
     
     private func getPhotosFromStorage() {
-                
-        let storage: PhotoDataStorage
-        
+    
         do {
-            storage = try PhotoDataStorage()
-            self.photos = storage.photos
+            self.photos = try PhotoDataStorage.getPhotos()
             
         } catch VKError.api(let error){
             let message = "Код ошибки: \(error.code) \n" + error.message
@@ -75,8 +71,8 @@ extension GalleryViewController: UICollectionViewDataSource{
         let photoUrl = photos[indexPath.row].sizes[0].url
         let photoDate = photos[indexPath.row].date
     
-        ImageDownloader.loadImage(with: photoUrl, into: cell.imageView, completion: { [weak self] _ in
-            self!.loadedPhotos[indexPath.row] = (photoDate, cell.imageView.image!)
+        ImageDownloader.loadImage(with: photoUrl, into: cell.imageView, completion: { _ in
+            PhotoDataStorage.loadedPhotos[indexPath.row] = (photoDate, cell.imageView.image!)
         })
 
         return cell
@@ -100,7 +96,7 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        guard let photo = loadedPhotos[indexPath.row] else {
+        guard let photo = PhotoDataStorage.loadedPhotos[indexPath.row] else {
             return
         }
         
