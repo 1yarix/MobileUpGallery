@@ -1,4 +1,5 @@
 import UIKit
+import Nuke
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -7,6 +8,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
              
         vkDelegate = VKDelegate()
         NetworkMonitor.shared.startMonitoring()
+        ImagePipeline.shared = ImagePipeline(configuration: .withDataCache)
         return true
     }
 
