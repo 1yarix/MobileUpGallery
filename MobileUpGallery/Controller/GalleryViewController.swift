@@ -68,14 +68,19 @@ extension GalleryViewController: UICollectionViewDataSource{
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! GalleryCollectionViewCell
         
-        let photoUrl = photos[indexPath.row].sizes[0].url
-        let photoDate = photos[indexPath.row].date
-    
-        ImageDownloader.loadImage(with: photoUrl, into: cell.imageView, completion: { _ in
-            PhotoDataStorage.loadedPhotos[indexPath.row] = (photoDate, cell.imageView.image!)
-        })
-
-        return cell
+        if let photo = PhotoDataStorage.loadedPhotos[indexPath.row] {
+            cell.imageView.image = photo.image
+            return cell
+        } else {
+            let photoUrl = photos[indexPath.row].sizes[0].url
+            let photoDate = photos[indexPath.row].date
+        
+            ImageDownloader.loadImage(with: photoUrl, into: cell.imageView, completion: { _ in
+                PhotoDataStorage.loadedPhotos[indexPath.row] = (photoDate, cell.imageView.image!)
+            })
+            
+            return cell
+        }
     }
 }
 

@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoViewController" customModule="MobileUpGallery" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="gyn-gu-0Un" id="Vlw-A3-uum"/>
+                <outlet property="previewCollectionView" destination="Jph-Jb-1fi" id="UQA-JE-RPG"/>
                 <outlet property="scrollView" destination="zKj-jd-vMy" id="gHK-fP-Gay"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zKj-jd-vMy">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKj-jd-vMy">
                     <rect key="frame" x="0.0" y="223.33333333333334" width="375" height="375.33333333333326"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7te-xn-cvv">
@@ -52,13 +53,29 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="CCd-Dv-pPY"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="wgt-X5-q74"/>
                 </scrollView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Jph-Jb-1fi">
+                    <rect key="frame" x="0.0" y="722" width="375" height="56"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="OXY-Iy-lcC"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="JyZ-1D-ob0">
+                        <size key="itemSize" width="56" height="56"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Jph-Jb-1fi" secondAttribute="trailing" id="2gp-9o-fgm"/>
+                <constraint firstItem="Jph-Jb-1fi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8am-jh-xKG"/>
                 <constraint firstItem="zKj-jd-vMy" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="eIN-w8-nct"/>
                 <constraint firstItem="gyn-gu-0Un" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.462054" id="edS-WQ-rIq"/>
                 <constraint firstItem="gyn-gu-0Un" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="iD4-qJ-Rrb"/>
+                <constraint firstItem="Jph-Jb-1fi" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="o8n-bK-gf3"/>
                 <constraint firstItem="zKj-jd-vMy" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="p4a-ie-0oI"/>
             </constraints>
             <point key="canvasLocation" x="136.80000000000001" y="93.103448275862078"/>

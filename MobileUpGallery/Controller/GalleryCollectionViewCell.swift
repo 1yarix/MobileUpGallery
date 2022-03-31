@@ -7,4 +7,8 @@ class GalleryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    override func prepareForReuse() {
+        self.layer.borderWidth = 0
+    }
 }

@@ -4,6 +4,7 @@ class PhotoViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var previewCollectionView: UICollectionView!
     
     var photo: UIImage!
     var photoDate: TimeInterval!
@@ -13,9 +14,14 @@ class PhotoViewController: UIViewController {
         
         imageView.image = photo
         scrollView.delegate = self
+        previewCollectionView.dataSource = self
+        previewCollectionView.delegate = self
+        previewCollectionView.register(UINib(nibName: "GalleryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+
+        title = Utils.formatDate(unformatted: photoDate)
+        
         setupShareButton()
         setupScrollView()
-        setupDate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,17 +53,7 @@ class PhotoViewController: UIViewController {
         button.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)], for: .normal)
         self.navigationItem.rightBarButtonItem = button
     }
-    
-    private func setupDate() {
-        let date = Date(timeIntervalSince1970: photoDate)
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ru_RU")
-        dateFormatter.dateFormat = "d MMMM y"
-        let dateStr = dateFormatter.string(from: date)
-
-        title = dateStr
-    }
-    
+        
    @objc private func shareImage() {
         
        let items: [Any] = [imageView.image!]
@@ -104,3 +100,51 @@ extension PhotoViewController: UIScrollViewDelegate {
         return imageView
     }
 }
+
+extension PhotoViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return PhotoDataStorage.photos.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = previewCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! GalleryCollectionViewCell
+        
+        if let photo = PhotoDataStorage.loadedPhotos[indexPath.row] {
+            cell.imageView.image = photo.image
+            return cell
+        } else {
+            let photoUrl = PhotoDataStorage.photos[indexPath.row].sizes[0].url
+            let photoDate = PhotoDataStorage.photos[indexPath.row].date
+        
+            ImageDownloader.loadImage(with: photoUrl, into: cell.imageView, completion: { _ in
+                PhotoDataStorage.loadedPhotos[indexPath.row] = (photoDate, cell.imageView.image!)
+            })
+            return cell
+        }
+    }
+}
+
+extension PhotoViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let photo = PhotoDataStorage.loadedPhotos[indexPath.row] else {
+            return
+        }
+        
+        imageView.image = photo.image
+        title = Utils.formatDate(unformatted: TimeInterval(photo.date))
+        
+        let cell = previewCollectionView.cellForItem(at: indexPath)
+        cell?.layer.borderWidth = 2.0
+        cell?.layer.borderColor = UIColor.systemBlue.cgColor
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = previewCollectionView.cellForItem(at: indexPath)
+        cell?.layer.borderWidth = 0
+    }
+}
+

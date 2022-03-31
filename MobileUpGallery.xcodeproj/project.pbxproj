@@ -13,6 +13,7 @@
 		2916EF5127F48BC4002CE003 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2916EF5027F48BC4002CE003 /* ImageDownloader.swift */; };
 		2916EF5327F49828002CE003 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2916EF5227F49828002CE003 /* Photo.swift */; };
 		2917CB3227F5D07B00BDB982 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2917CB3127F5D07B00BDB982 /* NetworkMonitor.swift */; };
+		2917CB7827F665C900BDB982 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2917CB7727F665C900BDB982 /* Utils.swift */; };
 		291AFDE027EF2C6A0023E395 /* AuthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 291AFDDF27EF2C6A0023E395 /* AuthView.xib */; };
 		291AFDE727EF2F380023E395 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291AFDE527EF2F380023E395 /* GalleryViewController.swift */; };
 		291AFDED27EF5BCB0023E395 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291AFDEB27EF5BCB0023E395 /* GalleryCollectionViewCell.swift */; };
@@ -42,6 +43,7 @@
 		2916EF5027F48BC4002CE003 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		2916EF5227F49828002CE003 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		2917CB3127F5D07B00BDB982 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		2917CB7727F665C900BDB982 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		291AFDDF27EF2C6A0023E395 /* AuthView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthView.xib; sourceTree = "<group>"; };
 		291AFDE527EF2F380023E395 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		291AFDEB27EF5BCB0023E395 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				2916EF5027F48BC4002CE003 /* ImageDownloader.swift */,
 				290C89FF27F4E952007E05B1 /* ImageSaver.swift */,
 				2917CB3127F5D07B00BDB982 /* NetworkMonitor.swift */,
+				2917CB7727F665C900BDB982 /* Utils.swift */,
 				294391FA27EF1B500060CD01 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -319,6 +322,7 @@
 				2917CB3227F5D07B00BDB982 /* NetworkMonitor.swift in Sources */,
 				2916EF5327F49828002CE003 /* Photo.swift in Sources */,
 				29F8529A27F3A69200B43C5A /* PhotoDataStorage.swift in Sources */,
+				2917CB7827F665C900BDB982 /* Utils.swift in Sources */,
 				291AFDF527EFAFB20023E395 /* PhotoViewController.swift in Sources */,
 				294391F227EF1B4F0060CD01 /* AppDelegate.swift in Sources */,
 				294391F427EF1B4F0060CD01 /* SceneDelegate.swift in Sources */,
