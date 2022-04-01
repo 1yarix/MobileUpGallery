@@ -12,11 +12,9 @@ class GalleryViewController: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        
-        getPhotosFromStorage()
-        
         collectionView.register(UINib(nibName: "GalleryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         
+        getPhotos()
         setupNavigationBar()
     }
     
@@ -28,8 +26,8 @@ class GalleryViewController: UIViewController {
         navigationController!.hidesBarsOnSwipe = true
         
         navigationController!.navigationBar.standardAppearance.shadowColor = .systemBackground
-        navigationController!.navigationBar.scrollEdgeAppearance!.shadowColor = .systemBackground
         navigationController!.navigationBar.standardAppearance.backgroundColor = .systemBackground
+        navigationController!.navigationBar.scrollEdgeAppearance? = navigationController!.navigationBar.standardAppearance
         
         let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         backButton.tintColor = .label
@@ -46,14 +44,14 @@ class GalleryViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    private func getPhotosFromStorage() {
+    private func getPhotos() {
     
         do {
-            photos = try PhotoDataStorage.getPhotos()
+            photos = try PhotoDataHandler.getPhotos()
             
         } catch VKError.api(let error){
             let message = "Код ошибки: \(error.code) \n" + error.message
-            Alert.showAlert(title: "Ошибка сервера", message: message, actionToRetry: getPhotosFromStorage, on: self)
+            Alert.showAlert(title: "Ошибка сервера", message: message, actionToRetry: getPhotos, on: self)
         } catch {}
     }
 }
@@ -70,7 +68,7 @@ extension GalleryViewController: UICollectionViewDataSource{
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! GalleryCollectionViewCell
         
-        if let photo = PhotoDataStorage.loadedPhotos[indexPath.row] {
+        if let photo = PhotoDataHandler.loadedPhotos[indexPath.row] {
             cell.imageView.image = photo.image
             return cell
         } else {
@@ -78,7 +76,7 @@ extension GalleryViewController: UICollectionViewDataSource{
             let photoDate = photos[indexPath.row].date
         
             ImageDownloader.loadImage(with: photoUrl, into: cell.imageView, completion: { _ in
-                PhotoDataStorage.loadedPhotos[indexPath.row] = (photoDate, cell.imageView.image!)
+                PhotoDataHandler.loadedPhotos[indexPath.row] = (photoDate, cell.imageView.image!)
             })
             
             return cell
@@ -103,13 +101,12 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        guard let photo = PhotoDataStorage.loadedPhotos[indexPath.row] else {
+        guard let photo = PhotoDataHandler.loadedPhotos[indexPath.row] else {
             return
         }
         
         let vc = PhotoViewController(nibName: "PhotoView", bundle: nil)
     
-        
         vc.photo = photo.image
         vc.photoDate = TimeInterval(photo.date)
         

@@ -13,24 +13,20 @@ class PhotoViewController: UIViewController {
         super.viewDidLoad()
         
         imageView.image = photo
-        scrollView.delegate = self
-        previewCollectionView.dataSource = self
-        previewCollectionView.delegate = self
-        previewCollectionView.register(UINib(nibName: "GalleryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
-
         title = Utils.formatDate(unformatted: photoDate)
 
         setupShareButton()
         setupScrollView()
+        setupPreviewCollection()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         navigationController!.navigationBar.standardAppearance.shadowColor = .systemGray5;
-        navigationController!.navigationBar.scrollEdgeAppearance!.shadowColor = .systemGray5
-        navigationController?.hidesBarsOnSwipe = false
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController!.navigationBar.scrollEdgeAppearance = navigationController!.navigationBar.standardAppearance
+        navigationController!.hidesBarsOnSwipe = false
+        navigationController!.setNavigationBarHidden(false, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -43,11 +39,18 @@ class PhotoViewController: UIViewController {
     }
     
     private func setupScrollView() {
+        scrollView.delegate = self
         scrollView.isScrollEnabled = true
         scrollView.bounces = false
         scrollView.bouncesZoom = false
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 3.5
+    }
+    
+    private func setupPreviewCollection() {
+        previewCollectionView.dataSource = self
+        previewCollectionView.delegate = self
+        previewCollectionView.register(UINib(nibName: "GalleryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
     }
     
     private func setupShareButton() {
@@ -104,25 +107,26 @@ extension PhotoViewController: UIScrollViewDelegate {
     }
 }
 
+// MARK: CollectionView config
 extension PhotoViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return PhotoDataStorage.photos.count
+        return PhotoDataHandler.photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = previewCollectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! GalleryCollectionViewCell
         
-        if let photo = PhotoDataStorage.loadedPhotos[indexPath.row] {
+        if let photo = PhotoDataHandler.loadedPhotos[indexPath.row] {
             cell.imageView.image = photo.image
             return cell
         } else {
-            let photoUrl = PhotoDataStorage.photos[indexPath.row].sizes[0].url
-            let photoDate = PhotoDataStorage.photos[indexPath.row].date
+            let photoUrl = PhotoDataHandler.photos[indexPath.row].sizes[0].url
+            let photoDate = PhotoDataHandler.photos[indexPath.row].date
         
             ImageDownloader.loadImage(with: photoUrl, into: cell.imageView, completion: { _ in
-                PhotoDataStorage.loadedPhotos[indexPath.row] = (photoDate, cell.imageView.image!)
+                PhotoDataHandler.loadedPhotos[indexPath.row] = (photoDate, cell.imageView.image!)
             })
             return cell
         }
@@ -133,7 +137,7 @@ extension PhotoViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        guard let photo = PhotoDataStorage.loadedPhotos[indexPath.row] else {
+        guard let photo = PhotoDataHandler.loadedPhotos[indexPath.row] else {
             return
         }
         
