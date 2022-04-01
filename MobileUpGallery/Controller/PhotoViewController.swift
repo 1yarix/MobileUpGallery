@@ -19,7 +19,7 @@ class PhotoViewController: UIViewController {
         previewCollectionView.register(UINib(nibName: "GalleryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
 
         title = Utils.formatDate(unformatted: photoDate)
-        
+
         setupShareButton()
         setupScrollView()
     }
@@ -27,16 +27,19 @@ class PhotoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.navigationController?.navigationBar.shadowImage = UIColor.systemGray5.image()
-        self.navigationController?.hidesBarsOnSwipe = false
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController!.navigationBar.standardAppearance.shadowColor = .systemGray5;
+        navigationController!.navigationBar.scrollEdgeAppearance!.shadowColor = .systemGray5
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        self.navigationController?.navigationBar.shadowImage = UIColor.systemBackground.image()
-        self.navigationController?.hidesBarsOnSwipe = true
+        navigationController!.navigationBar.standardAppearance.shadowColor = .systemBackground;
+        navigationController!.navigationBar.scrollEdgeAppearance?.shadowColor = .systemBackground
+
+        navigationController!.hidesBarsOnSwipe = true
     }
     
     private func setupScrollView() {
@@ -51,7 +54,7 @@ class PhotoViewController: UIViewController {
         let button = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(shareImage))
         button.tintColor = .label
         button.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)], for: .normal)
-        self.navigationItem.rightBarButtonItem = button
+        navigationItem.rightBarButtonItem = button
     }
         
    @objc private func shareImage() {

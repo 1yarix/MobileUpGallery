@@ -23,20 +23,22 @@ class GalleryViewController: UIViewController {
     // MARK: NavigationBar config
     private func setupNavigationBar() {
         
-        self.navigationItem.title = "Mobile Up Gallery"
-        self.navigationController?.navigationBar.shadowImage = UIColor.systemBackground.image()
-        self.navigationController?.navigationBar.barTintColor = .systemBackground
+        navigationItem.title = "Mobile Up Gallery"
         
-        self.navigationController?.hidesBarsOnSwipe = true
+        navigationController!.hidesBarsOnSwipe = true
+        
+        navigationController!.navigationBar.standardAppearance.shadowColor = .systemBackground
+        navigationController!.navigationBar.scrollEdgeAppearance!.shadowColor = .systemBackground
+        navigationController!.navigationBar.standardAppearance.backgroundColor = .systemBackground
         
         let backButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         backButton.tintColor = .label
-        self.navigationItem.backBarButtonItem = backButton
+        navigationItem.backBarButtonItem = backButton
         
         let button = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(logout))
         button.tintColor = .label
         button.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)], for: .normal)
-        self.navigationItem.rightBarButtonItem = button
+        navigationItem.rightBarButtonItem = button
     }
     
     @objc private func logout() {
@@ -47,7 +49,7 @@ class GalleryViewController: UIViewController {
     private func getPhotosFromStorage() {
     
         do {
-            self.photos = try PhotoDataStorage.getPhotos()
+            photos = try PhotoDataStorage.getPhotos()
             
         } catch VKError.api(let error){
             let message = "Код ошибки: \(error.code) \n" + error.message
@@ -111,6 +113,6 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
         vc.photo = photo.image
         vc.photoDate = TimeInterval(photo.date)
         
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController!.pushViewController(vc, animated: true)
     }
 }
